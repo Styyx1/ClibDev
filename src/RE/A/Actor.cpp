@@ -1667,4 +1667,18 @@ namespace RE
 		return dist <= 256*256;
 	}
 
+	void Actor::ApplySpell(Actor* a_target, SpellItem* a_spell){
+
+		if(a_spell->IsPermanent()){
+			AddSpell(a_spell);
+		}
+		else{
+			GetMagicCaster(RE::MagicSystem::CastingSource::kInstant)->CastSpellImmediate(a_spell, false, a_target, 1.0f, false, 0.0f, nullptr);
+		}
+
+	}
+	void Actor::ApplySpellToSelf(SpellItem* a_spell){
+		ApplySpell(this, a_spell);
+	}
+
 }

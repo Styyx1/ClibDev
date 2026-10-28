@@ -688,6 +688,8 @@ namespace RE
 		TESObjectWEAP*			 	 GetWieldingWeapon();
 		bool						 IsBashing() const;
 		bool						 IsNearbyPlayer() const;
+		void						 ApplySpell(Actor* a_target, SpellItem* a_spell);
+		void						 ApplySpellToSelf(SpellItem* a_spell);
 
 
 		// members

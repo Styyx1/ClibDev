@@ -1,5 +1,6 @@
 #pragma once
 
+
 #include "RE/B/BSAtomic.h"
 #include "RE/B/BSBitField.h"
 #include "RE/B/BSContainer.h"
@@ -217,6 +218,9 @@ namespace RE
 		void           SetOwner(TESForm* a_owner);
 		void           SetPublic(bool a_public);
 		bool           UsesSkyLighting() const;
+		bool		   IsJail() const;
+		bool		   IsPlayerHome() const;
+		std::vector<Actor*> GetAllActorsInCell();
 
 		// members
 		mutable BSSpinLock                                   grassCreateLock;   // 030
