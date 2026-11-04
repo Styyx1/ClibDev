@@ -238,11 +238,11 @@ namespace RE
 
 		std::vector<Actor*> result{};
 
-		for (const auto& ref : references){
-			if(!ref){
+		for (const auto& refr : references){
+			if(!refr){
 				continue;
 			}
-			auto actor = ref->As<Actor>();
+			auto actor = refr->As<Actor>();
 			if(!actor){
 				continue;
 			}

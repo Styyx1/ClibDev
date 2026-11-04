@@ -690,6 +690,8 @@ namespace RE
 		bool						 IsNearbyPlayer() const;
 		void						 ApplySpell(Actor* a_target, SpellItem* a_spell);
 		void						 ApplySpellToSelf(SpellItem* a_spell);
+		bool						 HasEquippedHeavyArmor() const;
+		bool						 HasEquippedLightArmor() const;
 
 
 		// members

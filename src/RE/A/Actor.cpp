@@ -1681,4 +1681,42 @@ namespace RE
 		ApplySpell(this, a_spell);
 	}
 
+	bool Actor::HasEquippedHeavyArmor() const{
+
+		const auto proc = currentProcess;
+
+		if(!proc){
+			return false;
+		}
+
+		for (auto& [object, slot] : proc->equippedForms){
+			if(object){
+				if(const auto armor = object->As<TESObjectARMO>()){
+					if(armor->IsHeavyArmor()){
+						return true;
+					}
+				}
+			}
+		}
+		return false;
+	}
+
+	bool Actor::HasEquippedLightArmor() const {
+		const auto proc = currentProcess;
+
+		if(!proc){
+			return false;
+		}
+		for (auto& [object, slot] : proc->equippedForms){
+			if(object){
+				if(const auto armor = object->As<TESObjectARMO>()){
+					if(armor->IsLightArmor()){
+						return true;
+					}
+				}
+			}
+		}
+		return false;
+	}
+
 }
