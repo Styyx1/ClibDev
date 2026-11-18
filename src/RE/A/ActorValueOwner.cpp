@@ -1,5 +1,6 @@
 #include "RE/A/ActorValueOwner.h"
 #include "RE/A/ActorValueList.h"
+#include "RE/A/ActorValues.h"
 
 namespace RE
 {
@@ -23,6 +24,13 @@ namespace RE
 
 		float damage = avi && avi->IsInverted() ? std::abs(a_value) : -std::abs(a_value);
 		ModActorValue(ACTOR_VALUE_MODIFIER::kDamage, a_akValue, damage);
+	}
+	void ActorValueOwner::LowerActorValue(ActorValue a_akValue, float a_value) {
+
+		auto avi = ActorValueList::GetActorValueInfo(a_akValue);
+
+		float damage = avi && avi->IsInverted() ? std::abs(a_value) : -std::abs(a_value);
+		ModActorValue(ACTOR_VALUE_MODIFIER::kTemporary, a_akValue, damage);
 	}
 
 	void ActorValueOwner::RestoreActorValue(ActorValue a_akValue, float a_value)

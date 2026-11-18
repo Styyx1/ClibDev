@@ -19,13 +19,16 @@
 #include "RE/E/EmotionTypes.h"
 #include "RE/F/FormTypes.h"
 #include "RE/I/IPostAnimationChannelUpdateFunctor.h"
+#include "RE/I/InventoryChanges.h"
 #include "RE/M/MagicSystem.h"
 #include "RE/M/MagicTarget.h"
 #include "RE/N/NiSmartPointer.h"
+#include "RE/T/TESBoundObject.h"
 #include "RE/T/TESNPC.h"
 #include "RE/T/TESObjectREFR.h"
 
 #include "REX/W32/BASE.h"
+#include <cstdint>
 
 namespace RE
 {
@@ -692,7 +695,8 @@ namespace RE
 		void						 ApplySpellToSelf(SpellItem* a_spell);
 		bool						 HasEquippedHeavyArmor() const;
 		bool						 HasEquippedLightArmor() const;
-
+		int32_t                      GetItemCountHelper(InventoryChanges* a_changes, TESBoundObject* a_item);
+		int32_t                      GetItemCount(TESBoundObject* a_item);
 
 		// members
 		REX::EnumSet<BOOL_BITS, std::uint32_t>            boolBits;                           // 0E0

@@ -26,6 +26,7 @@ namespace RE
 		[[nodiscard]] float GetClampedActorValue(ActorValue a_akValue) const;
 
 		void DamageActorValue(ActorValue a_akValue, float a_value);
+		void LowerActorValue(ActorValue a_akValue, float a_value);
 		void RestoreActorValue(ActorValue a_akValue, float a_value);
 	};
 	static_assert(sizeof(ActorValueOwner) == 0x8);
