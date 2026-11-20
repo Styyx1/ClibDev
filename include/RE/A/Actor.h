@@ -137,13 +137,13 @@ namespace RE
 	NiSmartPointer(Actor);
 
 	class Actor :
-		public TESObjectREFR,                              // 000
-		public MagicTarget,                                // 0A0
-		public ActorValueOwner,                            // 0B8
-		public ActorState,                                 // 0C0
-		public BSTEventSink<BSTransformDeltaEvent>,        // 0D0
-		public BSTEventSink<bhkCharacterMoveFinishEvent>,  // 0D8
-		public IPostAnimationChannelUpdateFunctor          // 0E0
+	    public TESObjectREFR,                              // 000
+	    public MagicTarget,                                // 0A0
+	    public ActorValueOwner,                            // 0B8
+	    public ActorState,                                 // 0C0
+	    public BSTEventSink<BSTransformDeltaEvent>,        // 0D0
+	    public BSTEventSink<bhkCharacterMoveFinishEvent>,  // 0D8
+	    public IPostAnimationChannelUpdateFunctor          // 0E0
 	{
 	private:
 		using EntryPoint = BGSEntryPointPerkEntry::EntryPoint;
@@ -671,31 +671,30 @@ namespace RE
 		void                         VisitSpells(ForEachSpellVisitor& a_visitor);
 		std::uint8_t                 WhoIsCasting();
 		bool                         WouldBeStealing(const TESObjectREFR* a_target) const;
-		void 						 InterruptAttack();
-		void						 GetPerksFromBaseActor(std::vector<BGSPerk*>& a_perksOut);
-		bool						 HasQuestItemInAnyHand() const;
-		bool						 IsVampire() const;
-		bool 						 IsUndead() const;
-		bool 						 IsDragon() const;
-		float						 GetCurrentLightLevel();
-		void						 TryStagger(float a_staggerMult, Actor* a_attacker);
-		bool						 StartsDead() const;
-		float						 GetMaxHealth() const;
-		float						 GetMaxStamina() const;
-		float						 GetMaxMagicka() const;
-		void						 FullyHealAllAttributes();
-		bool						 HasEffectOfTypeActive(EffectArchetypes::ArchetypeID a_type);
-		bool						 HasEffectWithKeywordActive(const std::string_view a_keyword);
-		bool						 HasEffectActive(const EffectSetting* a_effect);
-		bool						 HasItem(TESBoundObject* a_item);
-		TESObjectWEAP*			 	 GetWieldingWeapon();
-		bool						 IsBashing() const;
-		bool						 IsNearbyPlayer() const;
-		void						 ApplySpell(Actor* a_target, SpellItem* a_spell);
-		void						 ApplySpellToSelf(SpellItem* a_spell);
-		bool						 HasEquippedHeavyArmor() const;
-		bool						 HasEquippedLightArmor() const;
-		int32_t                      GetItemCountHelper(InventoryChanges* a_changes, TESBoundObject* a_item);
+		void                         InterruptAttack();
+		void                         GetPerksFromBaseActor(std::vector<BGSPerk*>& a_perksOut);
+		bool                         HasQuestItemInAnyHand() const;
+		bool                         IsVampire() const;
+		bool                         IsUndead() const;
+		bool                         IsDragon() const;
+		float                        GetCurrentLightLevel();
+		void                         TryStagger(float a_staggerMult, Actor* a_attacker);
+		bool                         StartsDead() const;
+		float                        GetMaxHealth() const;
+		float                        GetMaxStamina() const;
+		float                        GetMaxMagicka() const;
+		void                         FullyHealAllAttributes();
+		bool                         HasEffectOfTypeActive(EffectArchetypes::ArchetypeID a_type);
+		bool                         HasEffectWithKeywordActive(const std::string_view a_keyword);
+		bool                         HasEffectActive(const EffectSetting* a_effect);
+		bool                         HasItem(TESBoundObject* a_item);
+		TESObjectWEAP*               GetWieldingWeapon();
+		bool                         IsBashing() const;
+		bool                         IsNearbyPlayer() const;
+		void                         ApplySpell(Actor* a_target, SpellItem* a_spell);
+		void                         ApplySpellToSelf(SpellItem* a_spell);
+		bool                         HasEquippedHeavyArmor() const;
+		bool                         HasEquippedLightArmor() const;
 		int32_t                      GetItemCount(TESBoundObject* a_item);
 
 		// members

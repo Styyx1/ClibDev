@@ -1725,17 +1725,15 @@ namespace RE
 	}
 	int32_t Actor::GetItemCount(TESBoundObject* a_item)
 	{
-		auto inventoryChanges = GetInventoryChanges();
-		if (inventoryChanges) {
-			return GetItemCountHelper(inventoryChanges, a_item);
+		if (!a_item) {
+			return 0;
+		}
+
+		const auto& inv = GetInventory();
+		const auto  it = inv.find(a_item);
+		if (it != inv.end()) {
+			return it->second.first;
 		}
 		return 0;
-	}
-
-	int32_t Actor::GetItemCountHelper(InventoryChanges* a_changes, TESBoundObject* a_item)
-	{
-		using func_t = decltype(&Actor::GetItemCountHelper);
-		static REL::Relocation<func_t> func{ RELOCATION_ID(15868, 16108) };
-		return func(a_changes, a_item);
 	}
 }
